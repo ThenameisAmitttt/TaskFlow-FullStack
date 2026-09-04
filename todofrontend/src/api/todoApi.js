@@ -1,9 +1,10 @@
 import { apiFetch } from "./apiFetch"; 
-const API_URL = "http://127.0.0.1:8000/work/todolist/";
+const API_URL = import.meta.env.VITE_API_URL;
+const TODO_URL = `${API_URL}/work/todolist/`;
 
 
 export const getTodos = async () => {
-    const response = await apiFetch(API_URL);
+    const response = await apiFetch(TODO_URL);
 
     if (!response.ok) {
         throw new Error("Unable to load Todos. Please try again");
@@ -14,7 +15,7 @@ export const getTodos = async () => {
 
 
 export const addTodo = async (todoData) => {
-    const response = await apiFetch(API_URL, {
+    const response = await apiFetch(TODO_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -31,7 +32,7 @@ export const addTodo = async (todoData) => {
 
 
 export const deleteTodo = async (id) => {
-    const response = await apiFetch(`${API_URL}${id}/`, {
+    const response = await apiFetch(`${TODO_URL}${id}/`, {
         method: "DELETE",
     });
 
@@ -44,7 +45,7 @@ export const deleteTodo = async (id) => {
 
 
 export const toggleTodo = async (id, iscompleted) => {
-    const response = await apiFetch(`${API_URL}${id}/`, {
+    const response = await apiFetch(`${TODO_URL}${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -63,7 +64,7 @@ export const toggleTodo = async (id, iscompleted) => {
 
 
 export const updateTodo = async (id, todoData) => {
-    const response = await apiFetch(`${API_URL}${id}/`, {
+    const response = await apiFetch(`${TODO_URL}${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

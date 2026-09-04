@@ -7,13 +7,14 @@ export default function Login() {
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
     const [loading,setLoading] = useState(false)
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
         setLoading(true)
 
         try{
-        const response = await fetch('http://127.0.0.1:8000/api/login/',
+        const response = await fetch(`${API_URL}/api/login/`,
             {
                 method:'POST',
                 headers:{

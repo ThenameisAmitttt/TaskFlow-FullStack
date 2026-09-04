@@ -9,6 +9,7 @@ export default function Register() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
+  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
 
@@ -36,7 +37,7 @@ export default function Register() {
     setLoading(true);
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/register/',
+      const response = await fetch(`${API_URL}/api/register/`,
         {
           method: 'POST',
           headers: {
