@@ -1,0 +1,22 @@
+# Django
+.venv/
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Environment variables
+.env
+
+# Frontend
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+*.log
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
