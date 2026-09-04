@@ -133,6 +133,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://task-flow-full-stack-sepia.vercel.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
